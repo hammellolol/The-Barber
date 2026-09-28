@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Barber - Exklusiver Herrenfriseur & Barbershop in Memmingen</title>
+    <meta name="description" content="Ihr exklusiver Barbershop in Memmingen. Perfekte Haarschnitte, traditionelle Bartpflege und entspannte Atmosphäre. Jetzt Termin vereinbaren!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFF9E6',
+                            300: '#F3E5AB',
+                            400: '#E6CA65',
+                            500: '#D4AF37', // Gold Accent
+                            600: '#AA8C2C',
+                            700: '#806921',
+                        },
+                        dark: {
+                            900: '#0A0A0A', // Deep background
+                            800: '#121212', // Card background
+                            700: '#1A1A1A', // Elevated surfaces
+                            600: '#2A2A2A', // Borders/Muted
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A2A2A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF9E6 0%, #D4AF37 50%, #AA8C2C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200 font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-dark-900/80 backdrop-blur-md border-b border-dark-600/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center bg-dark-800 text-gold-500 group-hover:border-gold-500 transition-colors">
+                    <i class="fa-solid font-bold text-xl">✂</i>
+                </div>
+                <div>
+                    <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-wider gold-gradient-text block leading-none">THE BARBER</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 block mt-1">Memmingen</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 transition-colors">Über uns</a>
+                <a href="#services" class="text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 transition-colors">Leistungen</a>
+                <a href="#gallery" class="text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 transition-colors">Galerie</a>
+                <a href="#contact" class="text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 transition-colors">Kontakt</a>
+            </nav>
+
+            <!-- CTA Button & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#booking" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs uppercase tracking-widest font-semibold text-black bg-gold-500 hover:bg-gold-400 rounded-sm transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-gold-500/20">
+                    Termin Buchen
+                </a>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-gold-500 focus:outline-none p-2 transition-transform duration-300" aria-label="Menü öffnen">
+                    <i class="fa-solid fa-bars text-2xl transition-transform duration-300" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu (Animated) -->
+        <div id="mobile-menu" class="md:hidden bg-dark-800/95 backdrop-blur-lg border-b border-dark-600 px-6 space-y-3">
+            <div class="py-4 space-y-3">
+                <a href="#about" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 py-2 transition-colors">Über uns</a>
+                <a href="#services" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 py-2 transition-colors">Leistungen</a>
+                <a href="#gallery" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 py-2 transition-colors">Galerie</a>
+                <a href="#contact" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-300 hover:text-gold-500 py-2 transition-colors">Kontakt</a>
+                <a href="#booking" class="mobile-link block text-center px-5 py-3 text-xs uppercase tracking-widest font-semibold text-black bg-gold-500 hover:bg-gold-400 rounded-sm mt-4 shadow-lg shadow-gold-500/20 transition-all">
+                    Termin Buchen
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Barbershop Atmosphere" 
+                 class="w-full h-full object-cover object-center filter brightness-[0.35] scale-105 transition-transform duration-10000"
+                 loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-dark-900/80"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-20">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-dark-800/60 backdrop-blur-md mb-8">
+                <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Exklusiver Herrensalon in Memmingen</span>
+            </div>
+
+            <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Traditionelle Handwerkskunst <br>
+                <span class="gold-gradient-text">Moderne Perfektion</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-300 mb-10 font-light leading-relaxed">
+                Erleben Sie erstklassige Haarschnitte, meisterhafte Bartpflege und erstklassigen Service in einem stilvollen & entspannten Ambiente mitten im Herzen von Memmingen.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#booking" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-gold-500 hover:bg-gold-400 rounded-sm transition-all duration-300 shadow-xl shadow-gold-500/10 flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-base"></i> Termin vereinbaren
+                </a>
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-widest text-white border border-gray-600 hover:border-gold-500 hover:text-gold-500 rounded-sm transition-all duration-300 flex items-center justify-center gap-2 bg-dark-800/40 backdrop-blur-sm">
+                    Preise & Leistungen
+                </a>
+            </div>
+
+            <!-- Quick Info Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-dark-600/40 text-left">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-location-dot text-gold-500 text-xl"></i>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-400">Standort</p>
+                        <p class="text-sm font-medium text-white">Memmingen Zentrum</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fa-regular fa-clock text-gold-500 text-xl"></i>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-400">Öffnungszeiten</p>
+                        <p class="text-sm font-medium text-white">Di - Sa: 09:00 - 19:00</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-phone text-gold-500 text-xl"></i>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-400">Telefon</p>
+                        <p class="text-sm font-medium text-white">08331 / 99 88 77</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-star text-gold-500 text-xl"></i>
+                    <div>
+                        <p class="text-xs uppercase tracking-wider text-gray-400">Bewertung</p>
+                        <p class="text-sm font-medium text-white">4.9 / 5.0 (200+ Reviews)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark-800 relative border-y border-dark-600/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Stack -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-sm overflow-hidden border border-dark-600 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=800&auto=format&fit=crop" 
+                             alt="Barber at work" 
+                             class="w-full h-[450px] object-cover">
+                    </div>
+                    <!-- Decorative Element -->
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-gold-500/30 rounded-sm -z-0 hidden sm:block"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark-900/90 border border-gold-500/40 p-6 rounded-sm text-center shadow-2xl z-20 backdrop-blur-md max-w-xs">
+                        <span class="font-cinzel text-3xl font-bold gold-gradient-text block mb-1">10+ Jahre</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-300">Exzellenz & Leidenschaft</span>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="h-px w-8 bg-gold-500"></span>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-gold-500">Über The Barber</span>
+                    </div>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
+                        Mehr als nur ein Haarschnitt – <br>Ein Statement.
+                    </h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Willkommen bei <strong class="text-white">The Barber Memmingen</strong>. Bei uns geht es nicht nur um die perfekte Frisur oder die Konturierung Ihres Bartes – es geht um ein Gesamterlebnis. In ruhiger, stilvoller Atmosphäre bieten wir Ihnen eine Auszeit vom Alltag.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Klassisches Barbier-Handwerk trifft bei uns auf moderne Trends. Wir arbeiten ausschließlich mit hochwertigen Pflegeprodukten und nehmen uns die Zeit, die Ihr individueller Look verdient.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-dark-600/50">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-gold-500 mt-1"></i>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold mb-1">Erfahrene Barbiere</h4>
+                                <p class="text-xs text-gray-400">Präzisionsarbeit mit Klinge und Schere.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-check text-gold-500 mt-1"></i>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold mb-1">Exklusive Drinks</h4>
+                                <p class="text-xs text-gray-400">Whisky, Espresso oder kühles Bier inklusive.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Pricing Section -->
+    <section id="services" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="h-px w-8 bg-gold-500"></span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-500">Transparente Preise</span>
+                    <span class="h-px w-8 bg-gold-500"></span>
+                </div>
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white mb-4">Unsere Leistungen</h2>
+                <p class="text-gray-400 text-sm sm:text-base">Wählen Sie Ihre gewünschte Behandlung. Qualität & Präzision ohne Kompromisse.</p>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service Item 1 -->
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-500/50 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold block mb-1">Klassiker</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Gentleman Cut</h3>
+                            </div>
+                            <span class="font-cinzel text-2xl font-bold text-gold-500">35 €</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                            Individuelle Beratung, Präzisionshaarschnitt, Haarwäsche mit Kopfmassage, Styling & Finish.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
+                        <span><i class="fa-regular fa-clock text-gold-500/80 mr-1.5"></i> 45 Min</span>
+                        <a href="#booking" class="text-gold-500 hover:text-gold-400 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                            Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Item 2 (Popular Highlight) -->
+                <div class="bg-dark-800 p-8 rounded-sm border-2 border-gold-500 relative transform lg:-translate-y-2 shadow-xl shadow-gold-500/10 flex flex-col justify-between group">
+                    <div class="absolute -top-3 right-6 bg-gold-500 text-black text-[10px] uppercase font-bold tracking-widest px-3 py-0.5 rounded-full">
+                        Empfehlung
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold block mb-1">Rundum-Sorglos</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">The Barber Deluxe</h3>
+                            </div>
+                            <span class="font-cinzel text-2xl font-bold text-gold-500">59 €</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                            Haarschnitt + Bartpflege Komplett-Paket inklusive heißer Kompresse, Konturenrasur, Gesichtsmaske & Premium-Styling.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
+                        <span><i class="fa-regular fa-clock text-gold-500/80 mr-1.5"></i> 75 Min</span>
+                        <a href="#booking" class="text-gold-500 hover:text-gold-400 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                            Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Item 3 -->
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-500/50 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold block mb-1">Bart-Spezial</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Beard Care & Trim</h3>
+                            </div>
+                            <span class="font-cinzel text-2xl font-bold text-gold-500">28 €</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                            Professionelles Stutzen & Formen des Bartes, heiße Kompresse, Konturen mit Rasiermesser & pflegendes Bartöl.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
+                        <span><i class="fa-regular fa-clock text-gold-500/80 mr-1.5"></i> 30 Min</span>
+                        <a href="#booking" class="text-gold-500 hover:text-gold-400 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                            Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Item 4 -->
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-500/50 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold block mb-1">Fade Spezial</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Skin Fade Cut</h3>
+                            </div>
+                            <span class="font-cinzel text-2xl font-bold text-gold-500">38 €</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                            Merschiedene Übergänge auf 0mm (Razor Fade oder Shaver Fade) mit höchster Präzision, inklusive Styling.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
+                        <span><i class="fa-regular fa-clock text-gold-500/80 mr-1.5"></i> 45 Min</span>
+                        <a href="#booking" class="text-gold-500 hover:text-gold-400 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                            Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Item 5 -->
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-500/50 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold block mb-1">Traditionell</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Hot Towel Shave</h3>
+                            </div>
+                            <span class="font-cinzel text-2xl font-bold text-gold-500">30 €</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                            Klassische Nassrasur des gesamten Kopfes oder Gesichts mit heißem Handtuch, Rasierschaum & Aftershave-Balsam.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
+                        <span><i class="fa-regular fa-clock text-gold-500/80 mr-1.5"></i> 30 Min</span>
+                        <a href="#booking" class="text-gold-500 hover:text-gold-400 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                            Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Item 6 -->
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-500/50 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-500 font-semibold block mb-1">Nachwuchs</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Junior Cut (bis 14 J.)</h3>
+                            </div>
+                            <span class="font-cinzel text-2xl font-bold text-gold-500">25 €</span>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+                            Moderne und altersgerechte Haarschnitte für die Gentlemens von morgen. Inklusive Erfrischungsgetränk.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
+                        <span><i class="fa-regular fa-clock text-gold-500/80 mr-1.5"></i> 30 Min</span>
+                        <a href="#booking" class="text-gold-500 hover:text-gold-400 font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                            Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-dark-800 border-y border-dark-600/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="h-px w-8 bg-gold-500"></span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-500">Einblicke</span>
+                    <span class="h-px w-8 bg-gold-500"></span>
+                </div>
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white mb-4">Galerie & Impressionen</h2>
+                <p class="text-gray-400 text-sm">Ein Blick auf unsere Arbeit, unseren Laden und die einzigartige Atmosphäre.</p>
+            </div>
+
+            <!-- Mobile Preview Trigger (Visible only on mobile before click) -->
+            <div id="gallery-mobile-teaser" class="block md:hidden mb-6">
+                <div id="unlock-gallery-btn" class="relative rounded-sm overflow-hidden border border-gold-500/40 cursor-pointer group shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" 
+                         alt="Barbershop Atmosphere Preview" 
+                         class="w-full h-72 object-cover filter brightness-[0.35] group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-dark-900/60 backdrop-blur-[2px] flex flex-col items-center justify-center p-6 text-center">
+                        <div class="w-14 h-14 rounded-full border border-gold-500/50 flex items-center justify-center bg-dark-800/80 text-gold-500 mb-3 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-images text-xl"></i>
+                        </div>
+                        <h3 class="font-cinzel text-lg font-bold text-white mb-1">Galerie ansehen</h3>
+                        <p class="text-xs text-gray-300">Tippen, um alle Einblicke & Fotos zu laden</p>
+                        <span class="mt-4 px-4 py-1.5 text-[10px] uppercase font-bold tracking-widest text-black bg-gold-500 rounded-sm">
+                            Galerie Öffnen
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Grid (Hidden by default on mobile, visible on desktop) -->
+            <div id="gallery-grid" class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item" data-src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=600&auto=format&fit=crop" 
+                         alt="Haircut styling" 
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-500 text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item" data-src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=600&auto=format&fit=crop" 
+                         alt="Barber Shop Interior" 
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-500 text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item" data-src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=600&auto=format&fit=crop" 
+                         alt="Beard trim process" 
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-500 text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item" data-src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=600&auto=format&fit=crop" 
+                         alt="Barber tools" 
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-500 text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item" data-src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?q=80&w=600&auto=format&fit=crop" 
+                         alt="Classic shaving" 
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-500 text-2xl"></i>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item" data-src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?q=80&w=600&auto=format&fit=crop" 
+                         alt="Salon chair" 
+                         class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-500 text-2xl"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA Section -->
+    <section id="booking" class="py-20 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900 border-b border-dark-600/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-dark-800 p-8 sm:p-12 rounded-sm border border-gold-500/30 gold-border-glow">
+                <span class="text-xs uppercase font-semibold tracking-widest text-gold-500 block mb-2">Schnell & Unkompliziert</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-4">Sichern Sie sich Ihren Wunschtermin</h2>
+                <p class="text-gray-300 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
+                    Buchen Sie jetzt direkt online oder kontaktieren Sie uns schnell per WhatsApp. Wir freuen uns darauf, Sie bei uns in Memmingen zu begrüßen.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://wa.me/498331998877?text=Hallo!%20Ich%20m%C3%B6chte%20gerne%20einen%20Termin%20bei%20The%20Barber%20in%20Memmingen%20vereinbaren." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-emerald-600/20">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Via WhatsApp Buchen
+                    </a>
+                    
+                    <a href="tel:08331998877" 
+                       class="w-full sm:w-auto px-8 py-4 bg-dark-700 hover:bg-dark-600 text-white font-bold text-xs uppercase tracking-widest border border-dark-600 hover:border-gold-500 rounded-sm transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone text-gold-500 text-base"></i> Anrufen: 08331 / 99 88 77
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Hours & Map Section -->
+    <section id="contact" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Info Column (5 cols) -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="h-px w-8 bg-gold-500"></span>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-500">Besuchen Sie uns</span>
+                        </div>
+                        <h2 class="font-cinzel text-3xl font-bold text-white mb-4">Kontakt & Anfahrt</h2>
+                        <p class="text-gray-400 text-sm">Zentral gelegen im Herzen von Memmingen. Parkmöglichkeiten finden Sie direkt in der Nähe.</p>
+                    </div>
+
+                    <!-- Address & Phone -->
+                    <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-500/30 flex items-center justify-center text-gold-500 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold mb-0.5">Adresse</h4>
+                                <p class="text-xs text-gray-400">Marktplatz 12<br>87700 Memmingen</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 pt-4 border-t border-dark-700">
+                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-500/30 flex items-center justify-center text-gold-500 shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold mb-0.5">Telefon</h4>
+                                <p class="text-xs text-gray-400">08331 / 99 88 77</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 pt-4 border-t border-dark-700">
+                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-500/30 flex items-center justify-center text-gold-500 shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white text-sm font-semibold mb-0.5">E-Mail</h4>
+                                <p class="text-xs text-gray-400">info@thebarber-memmingen.de</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Opening Hours -->
+                    <div class="bg-dark-800 p-6 rounded-sm border border-dark-600">
+                        <h3 class="font-cinzel text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-gold-500 text-base"></i> Öffnungszeiten
+                        </h3>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between py-1 border-b border-dark-700 text-gray-300">
+                                <span>Montag</span>
+                                <span class="text-gray-500 font-mono">Ruhetag</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-dark-700 text-gray-300">
+                                <span>Dienstag - Freitag</span>
+                                <span class="text-gold-400 font-mono">09:00 - 19:00 Uhr</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-dark-700 text-gray-300">
+                                <span>Samstag</span>
+                                <span class="text-gold-400 font-mono">08:00 - 16:00 Uhr</span>
+                            </div>
+                            <div class="flex justify-between py-1 text-gray-300">
+                                <span>Sonntag & Feiertage</span>
+                                <span class="text-gray-500 font-mono">Geschlossen</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div>
+                        <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">Folgen Sie uns</p>
+                        <div class="flex gap-3">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-500 hover:border-gold-500 transition-colors">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-500 hover:border-gold-500 transition-colors">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/498331998877" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-500 hover:border-gold-500 transition-colors">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Interactive Google Maps Column (7 cols) -->
+                <div class="lg:col-span-7 h-[500px] lg:h-auto min-h-[400px] rounded-sm overflow-hidden border border-dark-600 relative group">
+                    <iframe 
+                        title="The Barber Memmingen Standort"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.625348270119!2d10.178888!3d47.983889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479b925f6f1f8db1%3A0x4268e3016a2b8e0!2sMemmingen!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde" 
+                        class="w-full h-full border-0 filter grayscale invert contrast-125 opacity-80 group-hover:opacity-100 transition-opacity duration-500" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <!-- Map Badge -->
+                    <div class="absolute bottom-4 left-4 bg-dark-900/90 border border-gold-500/40 p-3 rounded-sm backdrop-blur-md pointer-events-none">
+                        <p class="text-xs font-semibold text-white">The Barber Memmingen</p>
+                        <p class="text-[10px] text-gray-400">Marktplatz 12, 87700 Memmingen</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-600/50 py-12 text-gray-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="flex items-center gap-3">
+                <span class="font-cinzel text-lg font-bold gold-gradient-text">THE BARBER</span>
+                <span class="text-gray-600">|</span>
+                <span>© 2026 Alle Rechte vorbehalten.</span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <button id="open-impressum" class="hover:text-gold-500 transition-colors focus:outline-none">Impressum</button>
+                <button id="open-datenschutz" class="hover:text-gold-500 transition-colors focus:outline-none">Datenschutz</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-sm">
+        <button id="close-lightbox" class="absolute top-6 right-6 text-white hover:text-gold-500 text-3xl focus:outline-none">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] object-contain rounded-sm border border-gold-500/30">
+    </div>
+
+    <!-- Impressum Modal -->
+    <div id="impressum-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-dark-800 border border-gold-500/30 rounded-sm max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative text-gray-300">
+            <button id="close-impressum" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            
+            <h2 class="font-cinzel text-2xl font-bold text-white mb-4 gold-gradient-text">Impressum</h2>
+            
+            <div class="space-y-4 text-xs leading-relaxed">
+                <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+                <p>
+                    The Barber Memmingen<br>
+                    Inhaber: Max Mustermann<br>
+                    Marktplatz 12<br>
+                    87700 Memmingen
+                </p>
+
+                <p><strong>Kontakt:</strong></p>
+                <p>
+                    Telefon: 08331 / 99 88 77<br>
+                    E-Mail: info@thebarber-memmingen.de
+                </p>
+
+                <p><strong>Umsatzsteuer-ID:</strong></p>
+                <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>DE 123 456 789</p>
+
+                <p><strong>Aufsichtsbehörde / Handwerkskammer:</strong></p>
+                <p>Handwerkskammer Schwaben<br>Berufsbezeichnung: Friseurmeister (verliehen in Deutschland)</p>
+
+                <p><strong>Verbraucherstreitbeilegung/Universalschlichtungsstelle:</strong></p>
+                <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div id="datenschutz-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-dark-800 border border-gold-500/30 rounded-sm max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative text-gray-300">
+            <button id="close-datenschutz" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            
+            <h2 class="font-cinzel text-2xl font-bold text-white mb-4 gold-gradient-text">Datenschutzerklärung</h2>
+            
+            <div class="space-y-4 text-xs leading-relaxed">
+                <p><strong>1. Datenschutz auf einen Blick</strong></p>
+                <p>Allgemeine Hinweise: Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
+
+                <p><strong>2. Verantwortlicher</strong></p>
+                <p>Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist der Inhaber von The Barber Memmingen (Kontaktdaten siehe Impressum).</p>
+
+                <p><strong>3. Datenerfassung auf unserer Website</strong></p>
+                <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. per E-Mail oder WhatsApp). Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+
+                <p><strong>4. Google Maps & Externe Dienste</strong></p>
+                <p>Diese Seite nutzt über eine API den Kartendienst Google Maps. Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animated Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('open');
+                
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                    menuIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    mobileMenu.classList.add('open');
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-xmark');
+                    menuIcon.style.transform = 'rotate(180deg)';
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.classList.remove('fa-xmark');
+                    menuIcon.classList.add('fa-bars');
+                    menuIcon.style.transform = 'rotate(0deg)';
+                });
+            });
+
+            // Mobile Gallery Unlock Feature
+            const unlockGalleryBtn = document.getElementById('unlock-gallery-btn');
+            const galleryMobileTeaser = document.getElementById('gallery-mobile-teaser');
+            const galleryGrid = document.getElementById('gallery-grid');
+
+            if (unlockGalleryBtn) {
+                unlockGalleryBtn.addEventListener('click', () => {
+                    galleryMobileTeaser.classList.add('hidden');
+                    galleryGrid.classList.remove('hidden');
+                    galleryGrid.classList.add('grid');
+                });
+            }
+
+            // Gallery Lightbox
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeLightbox = document.getElementById('close-lightbox');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const src = item.getAttribute('data-src');
+                    lightboxImg.src = src;
+                    lightbox.classList.remove('hidden');
+                    lightbox.classList.add('flex');
+                });
+            });
+
+            closeLightbox.addEventListener('click', () => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.add('hidden');
+                    lightbox.classList.remove('flex');
+                }
+            });
+
+            // Impressum & Datenschutz Modals
+            const impressumModal = document.getElementById('impressum-modal');
+            const datenschutzModal = document.getElementById('datenschutz-modal');
+            
+            const openImpressum = document.getElementById('open-impressum');
+            const closeImpressum = document.getElementById('close-impressum');
+            
+            const openDatenschutz = document.getElementById('open-datenschutz');
+            const closeDatenschutz = document.getElementById('close-datenschutz');
+
+            openImpressum.addEventListener('click', () => {
+                impressumModal.classList.remove('hidden');
+                impressumModal.classList.add('flex');
+            });
+
+            closeImpressum.addEventListener('click', () => {
+                impressumModal.classList.add('hidden');
+                impressumModal.classList.remove('flex');
+            });
+
+            openDatenschutz.addEventListener('click', () => {
+                datenschutzModal.classList.remove('hidden');
+                datenschutzModal.classList.add('flex');
+            });
+
+            closeDatenschutz.addEventListener('click', () => {
+                datenschutzModal.classList.add('hidden');
+                datenschutzModal.classList.remove('flex');
+            });
+
+            // Close modals on outside click
+            [impressumModal, datenschutzModal].forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
