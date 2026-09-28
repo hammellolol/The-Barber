@@ -24,13 +24,13 @@
                 extend: {
                     colors: {
                         gold: {
-                            100: '#FFFFFF',
-                            200: '#FFFCE0',
-                            300: '#FFF9B3', // Sehr helles Lichtgelb
-                            400: '#FFEA00', // Leuchtendes, extrem helles Gelbgold
-                            500: '#FFDF00', 
-                            600: '#FACC15', 
-                            700: '#EAB308',
+                            100: '#FFFBEB',
+                            200: '#FEF08A',
+                            300: '#FDE047',
+                            400: '#FACC15', // Klassisches, schönes Gold
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                            700: '#A16207',
                         },
                         dark: {
                             900: '#0A0A0A',
@@ -61,23 +61,23 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #FFEA00;
+            background: #FACC15;
         }
         
-        /* Extrem strahlender Text-Gradient */
+        /* Sauberer, klassischer Gold-Gradient ohne leuchten */
         .gold-gradient-text {
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFFCE0 35%, #FFF066 100%);
+            background: linear-gradient(135deg, #FFE875 0%, #FACC15 50%, #D99B00 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Sehr starker Glow-Effekt für Karten & Elemente */
+        /* Border Glow nur noch dezent für Karten/Buttons */
         .gold-border-glow {
-            box-shadow: 0 0 25px rgba(255, 234, 0, 0.35);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.2);
         }
 
         .gold-border-glow:hover {
-            box-shadow: 0 0 40px rgba(255, 234, 0, 0.55);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.35);
         }
 
         /* Mobile Menu Animation */
@@ -99,9 +99,9 @@
     <!-- Navigation Header -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-dark-900/90 backdrop-blur-md border-b border-dark-600/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo oben links (Jetzt hell & leuchtend) -->
+            <!-- Logo oben links (Saubere goldene Optik ohne Leuchten) -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full border-2 border-gold-300 flex items-center justify-center bg-dark-800 text-gold-300 group-hover:border-white transition-colors shadow-[0_0_15px_rgba(255,249,179,0.5)]">
+                <div class="w-10 h-10 rounded-full border-2 border-gold-400 flex items-center justify-center bg-dark-800 text-gold-400 group-hover:border-white transition-colors">
                     <i class="fa-solid font-bold text-xl">✂</i>
                 </div>
                 <div>
@@ -112,21 +112,21 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 transition-colors">Start</a>
-                <a href="#about" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 transition-colors">Über uns</a>
-                <a href="#services" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 transition-colors">Leistungen</a>
-                <a href="#gallery" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 transition-colors">Galerie</a>
-                <a href="#reviews" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 transition-colors">Bewertungen</a>
-                <a href="#contact" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 transition-colors">Kontakt</a>
+                <a href="#" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 transition-colors">Start</a>
+                <a href="#about" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 transition-colors">Über uns</a>
+                <a href="#services" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 transition-colors">Leistungen</a>
+                <a href="#gallery" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 transition-colors">Galerie</a>
+                <a href="#reviews" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 transition-colors">Bewertungen</a>
+                <a href="#contact" class="text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 transition-colors">Kontakt</a>
             </nav>
 
-            <!-- CTA Button oben rechts (Jetzt strahlend helle gelb-goldene Farbe) -->
+            <!-- CTA Button oben rechts -->
             <div class="flex items-center gap-4">
-                <a href="tel:08331998877" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs uppercase tracking-widest font-bold text-black bg-gold-400 hover:bg-gold-200 rounded-sm transition-all duration-300 transform hover:-translate-y-0.5 shadow-[0_0_25px_rgba(255,234,0,0.6)]">
+                <a href="tel:08331998877" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs uppercase tracking-widest font-bold text-black bg-gold-400 hover:bg-gold-200 rounded-sm transition-all duration-300 transform hover:-translate-y-0.5">
                     Termin Buchen
                 </a>
                 
-                <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-gold-300 focus:outline-none p-2 transition-transform duration-300" aria-label="Menü öffnen">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-gold-400 focus:outline-none p-2 transition-transform duration-300" aria-label="Menü öffnen">
                     <i class="fa-solid fa-bars text-2xl transition-transform duration-300" id="menu-icon"></i>
                 </button>
             </div>
@@ -135,13 +135,13 @@
         <!-- Mobile Nav Menu (Animated) -->
         <div id="mobile-menu" class="md:hidden bg-dark-800/95 backdrop-blur-lg border-b border-dark-600 px-6 space-y-3">
             <div class="py-4 space-y-3">
-                <a href="#" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 py-2 transition-colors">Start</a>
-                <a href="#about" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 py-2 transition-colors">Über uns</a>
-                <a href="#services" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 py-2 transition-colors">Leistungen</a>
-                <a href="#gallery" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 py-2 transition-colors">Galerie</a>
-                <a href="#reviews" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 py-2 transition-colors">Bewertungen</a>
-                <a href="#contact" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-300 py-2 transition-colors">Kontakt</a>
-                <a href="tel:08331998877" class="mobile-link block text-center px-5 py-3 text-xs uppercase tracking-widest font-bold text-black bg-gold-400 hover:bg-gold-200 rounded-sm mt-4 shadow-[0_0_25px_rgba(255,234,0,0.6)] transition-all">
+                <a href="#" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 py-2 transition-colors">Start</a>
+                <a href="#about" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 py-2 transition-colors">Über uns</a>
+                <a href="#services" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 py-2 transition-colors">Leistungen</a>
+                <a href="#gallery" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 py-2 transition-colors">Galerie</a>
+                <a href="#reviews" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 py-2 transition-colors">Bewertungen</a>
+                <a href="#contact" class="mobile-link block text-sm font-medium tracking-widest uppercase text-gray-200 hover:text-gold-400 py-2 transition-colors">Kontakt</a>
+                <a href="tel:08331998877" class="mobile-link block text-center px-5 py-3 text-xs uppercase tracking-widest font-bold text-black bg-gold-400 hover:bg-gold-200 rounded-sm mt-4 transition-all">
                     Termin Buchen
                 </a>
             </div>
@@ -160,15 +160,15 @@
         </div>
 
         <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-12 pb-20">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-300/60 bg-dark-800/80 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(255,249,179,0.2)]">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/60 bg-dark-800/80 backdrop-blur-md mb-8">
                 <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-                <span class="text-xs font-semibold uppercase tracking-widest text-gold-300">Exklusiver Herrensalon in Memmingen</span>
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Exklusiver Herrensalon in Memmingen</span>
             </div>
 
-            <!-- Große Hauptüberschrift (Erster Screen) -->
+            <!-- Große Hauptüberschrift (Klassisches Gold ohne Leuchten) -->
             <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
                 Traditionelle Handwerkskunst <br>
-                <span class="gold-gradient-text drop-shadow-[0_4px_25px_rgba(255,234,0,0.3)]">Moderne Perfektion</span>
+                <span class="gold-gradient-text">Moderne Perfektion</span>
             </h1>
 
             <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-200 mb-10 font-light leading-relaxed">
@@ -176,10 +176,10 @@
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="tel:08331998877" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-gold-400 hover:bg-gold-200 rounded-sm transition-all duration-300 shadow-[0_0_30px_rgba(255,234,0,0.5)] flex items-center justify-center gap-2">
+                <a href="tel:08331998877" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-widest text-black bg-gold-400 hover:bg-gold-200 rounded-sm transition-all duration-300 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-phone text-base"></i> Termin vereinbaren
                 </a>
-                <a href="#services" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-widest text-white border border-gold-300/60 hover:border-gold-300 hover:text-gold-300 rounded-sm transition-all duration-300 flex items-center justify-center gap-2 bg-dark-800/60 backdrop-blur-sm">
+                <a href="#services" class="w-full sm:w-auto px-8 py-4 text-xs font-bold uppercase tracking-widest text-white border border-gold-400/60 hover:border-gold-400 hover:text-gold-400 rounded-sm transition-all duration-300 flex items-center justify-center gap-2 bg-dark-800/60 backdrop-blur-sm">
                     Preise & Leistungen
                 </a>
             </div>
@@ -187,28 +187,28 @@
             <!-- Quick Info Bar -->
             <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-dark-600/50 text-left">
                 <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-location-dot text-gold-300 text-xl"></i>
+                    <i class="fa-solid fa-location-dot text-gold-400 text-xl"></i>
                     <div>
                         <p class="text-xs uppercase tracking-wider text-gray-400">Standort</p>
                         <p class="text-sm font-medium text-white">Memmingen Zentrum</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <i class="fa-regular fa-clock text-gold-300 text-xl"></i>
+                    <i class="fa-regular fa-clock text-gold-400 text-xl"></i>
                     <div>
                         <p class="text-xs uppercase tracking-wider text-gray-400">Öffnungszeiten</p>
                         <p class="text-sm font-medium text-white">Di - Sa: 09:00 - 19:00</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-phone text-gold-300 text-xl"></i>
+                    <i class="fa-solid fa-phone text-gold-400 text-xl"></i>
                     <div>
                         <p class="text-xs uppercase tracking-wider text-gray-400">Telefon</p>
                         <p class="text-sm font-medium text-white">08331 / 99 88 77</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <i class="fa-solid fa-star text-gold-300 text-xl"></i>
+                    <i class="fa-solid fa-star text-gold-400 text-xl"></i>
                     <div>
                         <p class="text-xs uppercase tracking-wider text-gray-400">Bewertung</p>
                         <p class="text-sm font-medium text-white">4.9 / 5.0 (200+ Reviews)</p>
@@ -229,8 +229,8 @@
                              alt="Barber at work" 
                              class="w-full h-[450px] object-cover">
                     </div>
-                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-gold-300/40 rounded-sm -z-0 hidden sm:block"></div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark-900/90 border border-gold-300/60 p-6 rounded-sm text-center shadow-[0_0_30px_rgba(0,0,0,0.8)] z-20 backdrop-blur-md max-w-xs">
+                    <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-gold-400/40 rounded-sm -z-0 hidden sm:block"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark-900/90 border border-gold-400/60 p-6 rounded-sm text-center shadow-[0_0_30px_rgba(0,0,0,0.8)] z-20 backdrop-blur-md max-w-xs">
                         <span class="font-cinzel text-3xl font-bold gold-gradient-text block mb-1">10+ Jahre</span>
                         <span class="text-xs uppercase tracking-widest text-gray-300">Exzellenz & Leidenschaft</span>
                     </div>
@@ -239,8 +239,8 @@
                 <!-- Content -->
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <span class="h-px w-8 bg-gold-300"></span>
-                        <span class="text-xs font-semibold uppercase tracking-widest text-gold-300">Über The Barber</span>
+                        <span class="h-px w-8 bg-gold-400"></span>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Über The Barber</span>
                     </div>
                     <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-6 leading-tight">
                         Mehr als nur ein Haarschnitt – <br>Ein Statement.
@@ -255,14 +255,14 @@
                     <!-- Features -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-dark-600/50">
                         <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-gold-300 mt-1"></i>
+                            <i class="fa-solid fa-check text-gold-400 mt-1"></i>
                             <div>
                                 <h4 class="text-white text-sm font-semibold mb-1">Erfahrene Barbiere</h4>
                                 <p class="text-xs text-gray-400">Präzisionsarbeit mit Klinge und Schere.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <i class="fa-solid fa-check text-gold-300 mt-1"></i>
+                            <i class="fa-solid fa-check text-gold-400 mt-1"></i>
                             <div>
                                 <h4 class="text-white text-sm font-semibold mb-1">Exklusive Drinks</h4>
                                 <p class="text-xs text-gray-400">Whisky, Espresso oder kühles Bier inklusive.</p>
@@ -279,9 +279,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="h-px w-8 bg-gold-300"></span>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-300">Transparente Preise</span>
-                    <span class="h-px w-8 bg-gold-300"></span>
+                    <span class="h-px w-8 bg-gold-400"></span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Transparente Preise</span>
+                    <span class="h-px w-8 bg-gold-400"></span>
                 </div>
                 <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white mb-4">Unsere Leistungen</h2>
                 <p class="text-gray-300 text-sm sm:text-base">Wählen Sie Ihre gewünschte Behandlung. Qualität & Präzision ohne Kompromisse.</p>
@@ -291,69 +291,69 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Service Item 1 -->
-                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-300/80 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-400/80 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <span class="text-[10px] uppercase tracking-widest text-gold-300 font-semibold block mb-1">Klassiker</span>
-                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-300 transition-colors">Gentleman Cut</h3>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold block mb-1">Klassiker</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Gentleman Cut</h3>
                             </div>
-                            <span class="font-cinzel text-2xl font-bold text-gold-300">35 €</span>
+                            <span class="font-cinzel text-2xl font-bold text-gold-400">35 €</span>
                         </div>
                         <p class="text-xs text-gray-400 mb-6 leading-relaxed">
                             Individuelle Beratung, Präzisionshaarschnitt, Haarwäsche mit Kopfmassage, Styling & Finish.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
-                        <span><i class="fa-regular fa-clock text-gold-300 mr-1.5"></i> 45 Min</span>
-                        <a href="tel:08331998877" class="text-gold-300 hover:text-white font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                        <span><i class="fa-regular fa-clock text-gold-400 mr-1.5"></i> 45 Min</span>
+                        <a href="tel:08331998877" class="text-gold-400 hover:text-white font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
                             Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service Item 2 -->
-                <div class="bg-dark-800 p-8 rounded-sm border-2 border-gold-300 relative transform lg:-translate-y-2 shadow-[0_0_30px_rgba(255,234,0,0.25)] flex flex-col justify-between group">
+                <div class="bg-dark-800 p-8 rounded-sm border-2 border-gold-400 relative transform lg:-translate-y-2 flex flex-col justify-between group">
                     <div class="absolute -top-3 right-6 bg-gold-400 text-black text-[10px] uppercase font-bold tracking-widest px-3 py-0.5 rounded-full shadow-md">
                         Empfehlung
                     </div>
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <span class="text-[10px] uppercase tracking-widest text-gold-300 font-semibold block mb-1">Rundum-Sorglos</span>
-                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-300 transition-colors">The Barber Deluxe</h3>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold block mb-1">Rundum-Sorglos</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">The Barber Deluxe</h3>
                             </div>
-                            <span class="font-cinzel text-2xl font-bold text-gold-300">59 €</span>
+                            <span class="font-cinzel text-2xl font-bold text-gold-400">59 €</span>
                         </div>
                         <p class="text-xs text-gray-400 mb-6 leading-relaxed">
                             Haarschnitt + Bartpflege Komplett-Paket inklusive heißer Kompresse, Konturenrasur, Gesichtsmaske & Premium-Styling.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
-                        <span><i class="fa-regular fa-clock text-gold-300 mr-1.5"></i> 75 Min</span>
-                        <a href="tel:08331998877" class="text-gold-300 hover:text-white font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                        <span><i class="fa-regular fa-clock text-gold-400 mr-1.5"></i> 75 Min</span>
+                        <a href="tel:08331998877" class="text-gold-400 hover:text-white font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
                             Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service Item 3 -->
-                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-300/80 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
+                <div class="bg-dark-800 p-8 rounded-sm border border-dark-600 hover:border-gold-400/80 transition-all duration-300 gold-border-glow flex flex-col justify-between group">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <span class="text-[10px] uppercase tracking-widest text-gold-300 font-semibold block mb-1">Bart-Spezial</span>
-                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-300 transition-colors">Beard Care & Trim</h3>
+                                <span class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold block mb-1">Bart-Spezial</span>
+                                <h3 class="font-cinzel text-xl font-bold text-white group-hover:text-gold-400 transition-colors">Beard Care & Trim</h3>
                             </div>
-                            <span class="font-cinzel text-2xl font-bold text-gold-300">28 €</span>
+                            <span class="font-cinzel text-2xl font-bold text-gold-400">28 €</span>
                         </div>
                         <p class="text-xs text-gray-400 mb-6 leading-relaxed">
                             Professionelles Stutzen & Formen des Bartes, heiße Kompresse, Konturen mit Rasiermesser & pflegendes Bartöl.
                         </p>
                     </div>
                     <div class="pt-4 border-t border-dark-700 flex justify-between items-center text-xs text-gray-400">
-                        <span><i class="fa-regular fa-clock text-gold-300 mr-1.5"></i> 30 Min</span>
-                        <a href="tel:08331998877" class="text-gold-300 hover:text-white font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
+                        <span><i class="fa-regular fa-clock text-gold-400 mr-1.5"></i> 30 Min</span>
+                        <a href="tel:08331998877" class="text-gold-400 hover:text-white font-semibold uppercase tracking-wider text-[11px] flex items-center gap-1">
                             Buchen <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                     </div>
@@ -368,9 +368,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="h-px w-8 bg-gold-300"></span>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-300">Einblicke</span>
-                    <span class="h-px w-8 bg-gold-300"></span>
+                    <span class="h-px w-8 bg-gold-400"></span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Einblicke</span>
+                    <span class="h-px w-8 bg-gold-400"></span>
                 </div>
                 <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white mb-4">Galerie & Impressionen</h2>
                 <p class="text-gray-300 text-sm">Ein Blick auf unsere Arbeit, unseren Laden und die einzigartige Atmosphäre.</p>
@@ -378,12 +378,12 @@
 
             <!-- Mobile Teaser Trigger -->
             <div id="gallery-mobile-teaser" class="block md:hidden mb-6">
-                <div id="unlock-gallery-btn" class="relative rounded-sm overflow-hidden border border-gold-300/50 cursor-pointer group shadow-2xl">
+                <div id="unlock-gallery-btn" class="relative rounded-sm overflow-hidden border border-gold-400/50 cursor-pointer group shadow-2xl">
                     <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" 
                          alt="Barbershop Atmosphere Preview" 
                          class="w-full h-72 object-cover filter brightness-[0.35] group-hover:scale-105 transition-transform duration-500">
                     <div class="absolute inset-0 bg-dark-900/60 backdrop-blur-[2px] flex flex-col items-center justify-center p-6 text-center">
-                        <div class="w-14 h-14 rounded-full border border-gold-300/80 flex items-center justify-center bg-dark-800/80 text-gold-300 mb-3 shadow-lg group-hover:scale-110 transition-transform">
+                        <div class="w-14 h-14 rounded-full border border-gold-400/80 flex items-center justify-center bg-dark-800/80 text-gold-400 mb-3 shadow-lg group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-images text-xl"></i>
                         </div>
                         <h3 class="font-cinzel text-lg font-bold text-white mb-1">Galerie ansehen</h3>
@@ -397,22 +397,22 @@
 
             <!-- Image Grid -->
             <div id="gallery-grid" class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
-                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item border border-transparent hover:border-gold-300/50 transition-all" data-src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1200&auto=format&fit=crop">
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item border border-transparent hover:border-gold-400/50 transition-all" data-src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=1200&auto=format&fit=crop">
                     <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=600&auto=format&fit=crop" alt="Haircut styling" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-300 text-2xl"></i>
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-2xl"></i>
                     </div>
                 </div>
-                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item border border-transparent hover:border-gold-300/50 transition-all" data-src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop">
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item border border-transparent hover:border-gold-400/50 transition-all" data-src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop">
                     <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=600&auto=format&fit=crop" alt="Barber Shop Interior" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-300 text-2xl"></i>
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-2xl"></i>
                     </div>
                 </div>
-                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item border border-transparent hover:border-gold-300/50 transition-all" data-src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1200&auto=format&fit=crop">
+                <div class="relative group overflow-hidden rounded-sm cursor-pointer gallery-item border border-transparent hover:border-gold-400/50 transition-all" data-src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1200&auto=format&fit=crop">
                     <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=600&auto=format&fit=crop" alt="Beard trim process" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-plus text-gold-300 text-2xl"></i>
+                        <i class="fa-solid fa-magnifying-glass-plus text-gold-400 text-2xl"></i>
                     </div>
                 </div>
             </div>
@@ -424,31 +424,31 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="h-px w-8 bg-gold-300"></span>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-300">Kundenstimmen</span>
-                    <span class="h-px w-8 bg-gold-300"></span>
+                    <span class="h-px w-8 bg-gold-400"></span>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Kundenstimmen</span>
+                    <span class="h-px w-8 bg-gold-400"></span>
                 </div>
                 <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-white mb-4">Bewertungen</h2>
                 <p class="text-gray-300 text-sm">Das sagen unsere Kunden über ihren Besuch bei uns.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 hover:border-gold-300/40 transition-colors">
-                    <div class="flex text-gold-300 mb-3 text-xs gap-1">
+                <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 hover:border-gold-400/40 transition-colors">
+                    <div class="flex text-gold-400 mb-3 text-xs gap-1">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-xs text-gray-300 mb-4 leading-relaxed">"Top Atmosphäre, perfekter Fade und super freundlicher Service. Bester Barbershop in Memmingen!"</p>
                     <span class="text-xs font-semibold text-white block">- Michael S.</span>
                 </div>
-                <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 hover:border-gold-300/40 transition-colors">
-                    <div class="flex text-gold-300 mb-3 text-xs gap-1">
+                <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 hover:border-gold-400/40 transition-colors">
+                    <div class="flex text-gold-400 mb-3 text-xs gap-1">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-xs text-gray-300 mb-4 leading-relaxed">"Meisterhafte Bartpflege mit heißen Handtüchern. Absolut empfehlenswert für jeden echten Gentleman."</p>
                     <span class="text-xs font-semibold text-white block">- Thomas B.</span>
                 </div>
-                <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 hover:border-gold-300/40 transition-colors">
-                    <div class="flex text-gold-300 mb-3 text-xs gap-1">
+                <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 hover:border-gold-400/40 transition-colors">
+                    <div class="flex text-gold-400 mb-3 text-xs gap-1">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="text-xs text-gray-300 mb-4 leading-relaxed">"Super Beratung und handwerklich auf allerhöchstem Niveau. Komme alle zwei Wochen sehr gerne wieder."</p>
@@ -461,8 +461,8 @@
     <!-- Booking CTA Section -->
     <section id="booking" class="py-20 bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900 border-b border-dark-600/30">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="bg-dark-800 p-8 sm:p-12 rounded-sm border border-gold-300/40 gold-border-glow">
-                <span class="text-xs uppercase font-semibold tracking-widest text-gold-300 block mb-2">Schnell & Unkompliziert</span>
+            <div class="bg-dark-800 p-8 sm:p-12 rounded-sm border border-gold-400/40">
+                <span class="text-xs uppercase font-semibold tracking-widest text-gold-400 block mb-2">Schnell & Unkompliziert</span>
                 <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-4">Sichern Sie sich Ihren Wunschtermin</h2>
                 <p class="text-gray-300 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
                     Rufen Sie uns an und buchen Sie direkt Ihren Termin. Wir freuen uns darauf, Sie bei uns in Memmingen zu begrüßen.
@@ -470,7 +470,7 @@
 
                 <div class="flex items-center justify-center">
                     <a href="tel:08331998877" 
-                       class="w-full sm:w-auto px-10 py-4 bg-gold-400 hover:bg-gold-200 text-black font-bold text-xs uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_25px_rgba(255,234,0,0.5)]">
+                       class="w-full sm:w-auto px-10 py-4 bg-gold-400 hover:bg-gold-200 text-black font-bold text-xs uppercase tracking-widest rounded-sm transition-all duration-300 flex items-center justify-center gap-3">
                         <i class="fa-solid fa-phone text-base"></i> Anrufen: 08331 / 99 88 77
                     </a>
                 </div>
@@ -487,8 +487,8 @@
                 <div class="lg:col-span-5 space-y-8">
                     <div>
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="h-px w-8 bg-gold-300"></span>
-                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-300">Besuchen Sie uns</span>
+                            <span class="h-px w-8 bg-gold-400"></span>
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-400">Besuchen Sie uns</span>
                         </div>
                         <h2 class="font-cinzel text-3xl font-bold text-white mb-4">Kontakt & Anfahrt</h2>
                         <p class="text-gray-300 text-sm">Zentral gelegen im Herzen von Memmingen. Parkmöglichkeiten finden Sie direkt in der Nähe.</p>
@@ -497,7 +497,7 @@
                     <!-- Address & Phone -->
                     <div class="bg-dark-800 p-6 rounded-sm border border-dark-600 space-y-4">
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-300/40 flex items-center justify-center text-gold-300 shrink-0">
+                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-400/40 flex items-center justify-center text-gold-400 shrink-0">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div>
@@ -507,7 +507,7 @@
                         </div>
 
                         <div class="flex items-start gap-4 pt-4 border-t border-dark-700">
-                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-300/40 flex items-center justify-center text-gold-300 shrink-0">
+                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-400/40 flex items-center justify-center text-gold-400 shrink-0">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
@@ -517,7 +517,7 @@
                         </div>
 
                         <div class="flex items-start gap-4 pt-4 border-t border-dark-700">
-                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-300/40 flex items-center justify-center text-gold-300 shrink-0">
+                            <div class="w-10 h-10 rounded-sm bg-dark-700 border border-gold-400/40 flex items-center justify-center text-gold-400 shrink-0">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div>
@@ -530,7 +530,7 @@
                     <!-- Opening Hours -->
                     <div class="bg-dark-800 p-6 rounded-sm border border-dark-600">
                         <h3 class="font-cinzel text-lg font-bold text-white mb-4 flex items-center gap-2">
-                            <i class="fa-regular fa-clock text-gold-300 text-base"></i> Öffnungszeiten
+                            <i class="fa-regular fa-clock text-gold-400 text-base"></i> Öffnungszeiten
                         </h3>
                         <div class="space-y-2 text-xs">
                             <div class="flex justify-between py-1 border-b border-dark-700 text-gray-300">
@@ -539,11 +539,11 @@
                             </div>
                             <div class="flex justify-between py-1 border-b border-dark-700 text-gray-300">
                                 <span>Dienstag - Freitag</span>
-                                <span class="text-gold-300 font-mono font-semibold">09:00 - 19:00 Uhr</span>
+                                <span class="text-gold-400 font-mono font-semibold">09:00 - 19:00 Uhr</span>
                             </div>
                             <div class="flex justify-between py-1 border-b border-dark-700 text-gray-300">
                                 <span>Samstag</span>
-                                <span class="text-gold-300 font-mono font-semibold">08:00 - 16:00 Uhr</span>
+                                <span class="text-gold-400 font-mono font-semibold">08:00 - 16:00 Uhr</span>
                             </div>
                             <div class="flex justify-between py-1 text-gray-300">
                                 <span>Sonntag & Feiertage</span>
@@ -556,10 +556,10 @@
                     <div>
                         <p class="text-xs uppercase tracking-widest text-gray-400 mb-3">Folgen Sie uns</p>
                         <div class="flex gap-3">
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-300 hover:border-gold-300 transition-colors">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-400 hover:border-gold-400 transition-colors">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-300 hover:border-gold-300 transition-colors">
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-sm bg-dark-800 border border-dark-600 flex items-center justify-center text-gray-300 hover:text-gold-400 hover:border-gold-400 transition-colors">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </div>
@@ -572,14 +572,14 @@
                     
                     <!-- Opt-In Banner -->
                     <div id="map-optin" class="max-w-md space-y-4">
-                        <div class="w-12 h-12 rounded-full border border-gold-300/50 bg-dark-700 flex items-center justify-center text-gold-300 mx-auto shadow-[0_0_15px_rgba(255,249,179,0.2)]">
+                        <div class="w-12 h-12 rounded-full border border-gold-400/50 bg-dark-700 flex items-center justify-center text-gold-400 mx-auto">
                             <i class="fa-solid fa-map-location-dot text-xl"></i>
                         </div>
                         <h3 class="font-cinzel text-lg font-bold text-white">Google Maps Karte laden</h3>
                         <p class="text-xs text-gray-300 leading-relaxed">
                             Um die interaktive Karte anzuzeigen, ist Ihre Zustimmung zur Datenübertragung an Google Maps erforderlich (DSGVO-konform).
                         </p>
-                        <button id="load-map-btn" class="px-6 py-3 text-xs uppercase font-bold tracking-widest text-black bg-gold-400 hover:bg-gold-200 rounded-sm transition-all shadow-[0_0_20px_rgba(255,234,0,0.4)]">
+                        <button id="load-map-btn" class="px-6 py-3 text-xs uppercase font-bold tracking-widest text-black bg-gold-400 hover:bg-gold-200 rounded-sm transition-all">
                             Karte laden & Cookies akzeptieren
                         </button>
                     </div>
@@ -603,26 +603,26 @@
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 uppercase tracking-wider text-[11px]">
-                <a href="#" class="hover:text-gold-300 transition-colors">Start</a>
-                <a href="#services" class="hover:text-gold-300 transition-colors">Leistungen</a>
-                <a href="#reviews" class="hover:text-gold-300 transition-colors">Bewertungen</a>
-                <a href="#contact" class="hover:text-gold-300 transition-colors">Kontakt</a>
+                <a href="#" class="hover:text-gold-400 transition-colors">Start</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors">Leistungen</a>
+                <a href="#reviews" class="hover:text-gold-400 transition-colors">Bewertungen</a>
+                <a href="#contact" class="hover:text-gold-400 transition-colors">Kontakt</a>
                 <span class="text-dark-600 hidden sm:inline">|</span>
-                <button id="open-impressum" class="hover:text-gold-300 transition-colors focus:outline-none">Impressum</button>
-                <button id="open-datenschutz" class="hover:text-gold-300 transition-colors focus:outline-none">Datenschutz</button>
+                <button id="open-impressum" class="hover:text-gold-400 transition-colors focus:outline-none">Impressum</button>
+                <button id="open-datenschutz" class="hover:text-gold-400 transition-colors focus:outline-none">Datenschutz</button>
             </div>
         </div>
     </footer>
 
     <!-- Lightbox Modal -->
     <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-sm">
-        <button id="close-lightbox" class="absolute top-6 right-6 text-white hover:text-gold-300 text-3xl focus:outline-none">&times;</button>
-        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] object-contain rounded-sm border border-gold-300/50">
+        <button id="close-lightbox" class="absolute top-6 right-6 text-white hover:text-gold-400 text-3xl focus:outline-none">&times;</button>
+        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] object-contain rounded-sm border border-gold-400/50">
     </div>
 
     <!-- Impressum Modal -->
     <div id="impressum-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-dark-800 border border-gold-300/40 rounded-sm max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative text-gray-300">
+        <div class="bg-dark-800 border border-gold-400/40 rounded-sm max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative text-gray-300">
             <button id="close-impressum" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
             
             <h2 class="font-cinzel text-2xl font-bold text-white mb-4 gold-gradient-text">Impressum</h2>
@@ -650,7 +650,7 @@
 
     <!-- Datenschutz Modal -->
     <div id="datenschutz-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-dark-800 border border-gold-300/40 rounded-sm max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative text-gray-300">
+        <div class="bg-dark-800 border border-gold-400/40 rounded-sm max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative text-gray-300">
             <button id="close-datenschutz" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
             
             <h2 class="font-cinzel text-2xl font-bold text-white mb-4 gold-gradient-text">Datenschutzerklärung</h2>
